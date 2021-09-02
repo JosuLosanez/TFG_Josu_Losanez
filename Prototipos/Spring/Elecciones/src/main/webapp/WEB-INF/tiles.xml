@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+
+	<definition name="baseTiles" template="/WEB-INF/layouts/default.jsp">
+    	<put-attribute name="title" value="Demo Page" />
+    	<put-attribute name="header" value="/WEB-INF/tiles/header.jsp" />
+    	<put-attribute name="content" value="/WEB-INF/tiles/home.jsp" />
+    	<put-attribute name="footer" value="/WEB-INF/tiles/footer.jsp" />
+  	</definition>
+  	
+  	<definition name="ProcedimientoTiles" extends="baseTiles" template="/WEB-INF/layouts/with-rigth-menu.jsp">
+    	<put-attribute name="rigth-menu" value="/WEB-INF/tiles/menus/procedimiento-menu.jsp" />
+  	</definition>
+  	
+  	
+  	<definition name="MantenimientoTiles" extends="baseTiles" template="/WEB-INF/layouts/with-rigth-menu.jsp">
+    	<put-attribute name="rigth-menu" value="/WEB-INF/tiles/menus/mantenimiento-menu.jsp" />
+  	</definition> 	
+<!--  
+  	<definition name="*/*/*" extends="baseTiles">
+		<put-attribute name="menu-izq"
+			value="/WEB-INF/jsps/templates/{1}/menu-izq.jsp" />
+		<put-attribute name="cuerpo" value="/WEB-INF/jsps/views/{1}/{2}/{3}.jsp" />
+	</definition>
+
+	<definition name="*/*" extends="baseTiles">
+		<put-attribute name="menu-izq"
+			value="/WEB-INF/jsps/templates/{1}/menu-izq.jsp" />
+		<put-attribute name="cuerpo" value="/WEB-INF/jsps/views/{1}/{2}.jsp" />
+	</definition>
+
+	<definition name="*" extends="baseTiles">
+		<put-attribute name="cuerpo" value="/WEB-INF/tiles/{1}.jsp" />
+	</definition>
+-->
+
+	
+	 <definition name="inicio" extends="baseTiles">
+		<put-attribute name="content" value="/WEB-INF/views/inicio.jsp" />
+	</definition>
+	
+	<definition name="listaCalendario" extends="baseTiles" >
+    	<put-attribute name="content" value="/WEB-INF/views/listaCalendario.jsp" />
+  	</definition>
+  	
+  	<!-- Navegacion procedimiento -->
+  	<definition name="convocatoria" extends="ProcedimientoTiles">
+		<put-attribute name="content" value="/WEB-INF/views/procedimiento/convocatoria.jsp" />
+	</definition>
+	
+	<definition name="juntas" extends="ProcedimientoTiles">
+		<put-attribute name="content" value="/WEB-INF/views/procedimiento/juntas.jsp" />
+	</definition>
+	
+	<definition name="candidaturas" extends="ProcedimientoTiles">
+		<put-attribute name="content" value="/WEB-INF/views/procedimiento/candidaturas.jsp" />
+	</definition>
+	
+	<!-- Mantenimiento eventos -->
+	<definition name="addEvento" extends="MantenimientoTiles" >
+    	<put-attribute name="content" value="/WEB-INF/views/mantenimiento/evento/addEvento.jsp" />
+  	</definition>
+  	
+  	<definition name="updateEvento" extends="MantenimientoTiles" >
+    	<put-attribute name="content" value="/WEB-INF/views/mantenimiento/evento/updateEvento.jsp" />
+  	</definition>
+  	
+  	<definition name="searchEvento" extends="MantenimientoTiles" >
+    	<put-attribute name="content" value="/WEB-INF/views/mantenimiento/evento/searchEvento.jsp" />
+  	</definition>
+  	
+  	<!-- Mantenimiento fases -->
+  	<definition name="addFase" extends="MantenimientoTiles" >
+    	<put-attribute name="content" value="/WEB-INF/views/mantenimiento/fase/addFase.jsp" />
+  	</definition>
+  	
+  	<definition name="updateFase" extends="MantenimientoTiles" >
+    	<put-attribute name="content" value="/WEB-INF/views/mantenimiento/fase/updateFase.jsp" />
+  	</definition>
+  	
+  	<definition name="listaFase" extends="MantenimientoTiles" >
+    	<put-attribute name="content" value="/WEB-INF/views/mantenimiento/fase/listaFase.jsp" />
+  	</definition>
+  	
+  	
+</tiles-definitions>
